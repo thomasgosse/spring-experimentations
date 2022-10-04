@@ -101,6 +101,7 @@ _Note: a chart has been added to visualize the spring in a graph._
 Thanks to [animate](https://developer.mozilla.org/en-US/docs/Web/API/Element/animate), we can compute in JS our keyframe values, and animate a component like so:
 
 ```js
+
 function getSpring() {
   const from = 100;
   const to = 0;
