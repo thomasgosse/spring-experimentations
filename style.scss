@@ -1,0 +1,98 @@
+@use "sass:math";
+
+@function lerp($a, $b, $p) {
+  @return $a + $p * ($b - $a);
+}
+
+// k = 240 and c = 12
+@function spring-bounce($t) {
+  $ePow: math.pow(math.$e, calc(-6 * $t));
+  $sin: math.sin(2 * math.sqrt(51) * $t);
+  $cos: math.cos(2 * math.sqrt(51) * $t);
+  @return -1 * math.sqrt(calc(3 / 17)) * $ePow * $sin - $ePow * $cos + 1;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  background-color: #ebf4ff;
+}
+
+.should-bounce {
+  height: 170px;
+  width: 612px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+
+  animation: bounce-from-bottom 0.8s ease-out, opacity 0.3s ease-in;
+}
+
+.should-bounce-rotate {
+  animation: bounce-rotate-scale 0.8s ease-out, opacity 0.2s ease-in;
+
+  margin-bottom: 100px;
+}
+
+@keyframes bounce-from-bottom {
+  @for $i from 0 through 100 {
+    #{$i * 1%} {
+      $t: calc($i / 100);
+      $p: spring-bounce($t);
+      transform: translateY(lerp(80px, 0, $p));
+    }
+  }
+}
+
+@keyframes bounce-scale {
+  @for $i from 0 through 100 {
+    #{$i * 1%} {
+      $t: calc($i / 100);
+      $p: spring-bounce($t);
+      transform: scale(lerp(1, 1.2, $p));
+    }
+  }
+}
+
+@keyframes bounce-rotate-scale {
+  @for $i from 0 through 100 {
+    #{$i * 1%} {
+      $t: calc($i / 100);
+      $p: spring-bounce($t);
+      transform: rotate(lerp(90deg, 0, $p)) scale(lerp(0, 1, $p));
+    }
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+canvas {
+  margin-top: 200px;
+  max-width: 600px;
+  max-height: 300px;
+}
+
+.chart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputs {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
