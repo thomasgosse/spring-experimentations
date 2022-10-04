@@ -9,7 +9,7 @@
     "build": "concurrently \"yarn build:js\" \"yarn build:css\""
   },
   "dependencies": {
-    "@rollup/plugin-node-resolve": "^14.1.0",
+    "@rollup/plugin-node-resolve": "14.1.0",
     "@rollup/plugin-typescript": "^8.5.0",
     "chart.js": "^3.9.1",
     "concurrently": "^7.4.0",
