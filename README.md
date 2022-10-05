@@ -32,7 +32,7 @@ For the CSS part, we will write the example function in scss:
   $ePow: math.pow(math.$e, calc(-6 * $t));
   $sin: math.sin(2 * math.sqrt(51) * $t);
   $cos: math.cos(2 * math.sqrt(51) * $t);
-  @return -1 * math.sqrt(calc(3 / 17)) * $ePow * $sin - $powNegative * $cos + 1;
+  @return -1 * math.sqrt(calc(3 / 17)) * $ePow * $sin - $ePow * $cos + 1;
 }
 ```
 
