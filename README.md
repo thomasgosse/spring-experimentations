@@ -1,6 +1,6 @@
 # Spring animation
 
-This project has been created in order to understand deeper how spring animation works, after discover [this amazing article](https://medium.com/@dtinth/spring-animation-in-css-2039de6e1a03).
+This project has been created in order to understand deeper how spring animation works, after discovering [this amazing article](https://medium.com/@dtinth/spring-animation-in-css-2039de6e1a03).
 
 The goal is to solve the following damped spring equation:
 
